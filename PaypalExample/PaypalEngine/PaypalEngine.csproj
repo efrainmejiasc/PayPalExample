@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreateOrder.cs" />
     <Compile Include="EngineData.cs" />
     <Compile Include="PaypalEngineCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
