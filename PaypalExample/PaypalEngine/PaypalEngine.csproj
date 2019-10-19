@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CreateOrder.cs" />
+    <Compile Include="CreateOrderBuild.cs" />
     <Compile Include="EngineData.cs" />
     <Compile Include="PaypalEngineCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
