@@ -27,6 +27,22 @@ namespace PaypalEngine
             public string invoice_id { get; set; }
             public string soft_descriptor { get; set; }
         }
+        public class Amount
+        {
+            public string currency_code { get; set; }
+            public string value { get; set; }
+            public Breakdown breakdown { get; set; }
+        }
+
+        public class Breakdown
+        {
+            public ItemTotal item_total { get; set; }
+            public Shipping shipping { get; set; }
+            public Handling handling { get; set; }
+            public TaxTotal tax_total { get; set; }
+            public GiftWrap gift_wrap { get; set; }
+            public ShippingDiscount shipping_discount { get; set; }
+        }
 
         public class ItemTotal
         {
@@ -64,26 +80,19 @@ namespace PaypalEngine
             public string value { get; set; }
         }
 
-        public class Breakdown
-        {
-            public ItemTotal item_total { get; set; }
-            public Shipping shipping { get; set; }
-            public Handling handling { get; set; }
-            public TaxTotal tax_total { get; set; }
-            public GiftWrap gift_wrap { get; set; }
-            public ShippingDiscount shipping_discount { get; set; }
-        }
-
-        public class Amount
-        {
-            public string currency_code { get; set; }
-            public string value { get; set; }
-            public Breakdown breakdown { get; set; }
-        }
-
         public class Payee
         {
             public string merchant_id { get; set; }
+        }
+
+        public class Item
+        {
+            public string name { get; set; }
+            public string sku { get; set; }
+            public UnitAmount unit_amount { get; set; }
+            public Tax tax { get; set; }
+            public string quantity { get; set; }
+            public string category { get; set; }
         }
 
         public class UnitAmount
@@ -98,14 +107,9 @@ namespace PaypalEngine
             public string value { get; set; }
         }
 
-        public class Item
+        public class Shipping2
         {
-            public string name { get; set; }
-            public string sku { get; set; }
-            public UnitAmount unit_amount { get; set; }
-            public Tax tax { get; set; }
-            public string quantity { get; set; }
-            public string category { get; set; }
+            public Address address { get; set; }
         }
 
         public class Address
@@ -118,9 +122,16 @@ namespace PaypalEngine
             public string country_code { get; set; }
         }
 
-        public class Shipping2
+        public class PaymentInstruction
         {
-            public Address address { get; set; }
+            public string disbursement_mode { get; set; }
+            public List<PlatformFee> platform_fees { get; set; }
+        }
+
+        public class PlatformFee
+        {
+            public Amount2 amount { get; set; }
+            public Payee2 payee { get; set; }
         }
 
         public class Amount2
@@ -132,18 +143,6 @@ namespace PaypalEngine
         public class Payee2
         {
             public string email_address { get; set; }
-        }
-
-        public class PlatformFee
-        {
-            public Amount2 amount { get; set; }
-            public Payee2 payee { get; set; }
-        }
-
-        public class PaymentInstruction
-        {
-            public string disbursement_mode { get; set; }
-            public List<PlatformFee> platform_fees { get; set; }
         }
 
         public class ApplicationContext
