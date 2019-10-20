@@ -11,7 +11,7 @@ namespace PaypalEngine
 {
     public class PaypalEngineCode
     {
-
+        //Un token de portador le permite completar acciones en nombre y con la aprobación del propietario del recurso
         public async Task<RespuestaPaypalToken> GetTokenAccess(string clientId , string keySecret,string clientCredentials ,string endPointTokenPaypal)
         {
             string respuesta = string.Empty;
@@ -33,9 +33,11 @@ namespace PaypalEngine
                     resultado = JsonConvert.DeserializeObject<RespuestaPaypalToken>(respuesta);
                 }
             }
+
             return resultado;
         }
 
+        //Un pedido representa un pago entre dos o más partes.Use la API de pedidos para crear, actualizar, recuperar, autorizar y capturar pedidos
         public async Task<RespuestaCreateOrder> CreateOrder(string accessToken,string EndPointCreateOrderPaypal, string idProduct, string product, string value)
         {
             string respuesta = string.Empty;
@@ -58,6 +60,8 @@ namespace PaypalEngine
               
             return resultado;
         }
+
+
 
     }
 }
