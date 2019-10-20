@@ -21,5 +21,7 @@ namespace PaypalEngine
         public RespuestaPaypalToken RespuestaPaypalToken { get; set; }
 
         public RespuestaCreateOrder RespuestaCreateOrder { get; set; }
+
+        public RespuestaDetailsOrder RespuestaDetailsOrder { get; set; }
     }
 }

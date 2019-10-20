@@ -54,5 +54,19 @@ namespace PaypalExample
             Valor.RespuestaCreateOrder = resultado;
             richText.Text = resultado.id;
         }
+
+        private void DetailsOrder_Click(object sender, EventArgs e)
+        {
+            DetailsOrderPaypal();
+        }
+
+        private async void DetailsOrderPaypal()
+        {
+            PaypalEngineCode Funcion = new PaypalEngineCode();
+            RespuestaDetailsOrder resultado = new RespuestaDetailsOrder();
+            resultado = await Funcion.DetailsOrder(Valor.RespuestaPaypalToken.access_token, "https://api.sandbox.paypal.com/v2/checkout/orders/" + Valor.RespuestaCreateOrder.id);
+            Valor.RespuestaDetailsOrder = resultado;
+            richText.Text = resultado.status + " " + resultado.id + " " + resultado.intent;
+        }
     }
 }

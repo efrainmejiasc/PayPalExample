@@ -61,7 +61,27 @@ namespace PaypalEngine
             return resultado;
         }
 
+        //Muestra detalles de un pedido, por ID.
+        public async Task <RespuestaDetailsOrder> DetailsOrder (string accessToken , string EndPointDetailsOrderPaypal)
+        {
+            string respuesta = string.Empty;
+            RespuestaDetailsOrder resultado = new RespuestaDetailsOrder();
+            using (HttpClient client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+                client.DefaultRequestHeaders.Add("accept-language", "en_ES");
+                HttpResponseMessage response = await client.GetAsync(EndPointDetailsOrderPaypal);
+                if (response.IsSuccessStatusCode)
+                {
+                    respuesta = await response.Content.ReadAsStringAsync();
+                    resultado = JsonConvert.DeserializeObject<RespuestaDetailsOrder>(respuesta);
+                }
+            }
 
+            return resultado;
+        }
 
     }
 }

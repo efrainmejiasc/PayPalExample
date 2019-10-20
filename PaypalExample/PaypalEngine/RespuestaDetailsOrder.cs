@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PaypalEngine
 {
-    public class ShowDetailsOrder
+    public class RespuestaDetailsOrder
     {
         public string id { get; set; }
         public string status { get; set; }

@@ -31,6 +31,7 @@
             this.GetToken = new System.Windows.Forms.Button();
             this.richText = new System.Windows.Forms.RichTextBox();
             this.CreateOrder = new System.Windows.Forms.Button();
+            this.DetailsOrder = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // GetToken
@@ -62,11 +63,22 @@
             this.CreateOrder.UseVisualStyleBackColor = true;
             this.CreateOrder.Click += new System.EventHandler(this.CreateOrder_Click);
             // 
+            // DetailsOrder
+            // 
+            this.DetailsOrder.Location = new System.Drawing.Point(414, 240);
+            this.DetailsOrder.Name = "DetailsOrder";
+            this.DetailsOrder.Size = new System.Drawing.Size(195, 23);
+            this.DetailsOrder.TabIndex = 3;
+            this.DetailsOrder.Text = "Detalles de Orden";
+            this.DetailsOrder.UseVisualStyleBackColor = true;
+            this.DetailsOrder.Click += new System.EventHandler(this.DetailsOrder_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.DetailsOrder);
             this.Controls.Add(this.CreateOrder);
             this.Controls.Add(this.richText);
             this.Controls.Add(this.GetToken);
@@ -82,6 +94,7 @@
         private System.Windows.Forms.Button GetToken;
         private System.Windows.Forms.RichTextBox richText;
         private System.Windows.Forms.Button CreateOrder;
+        private System.Windows.Forms.Button DetailsOrder;
     }
 }
 
