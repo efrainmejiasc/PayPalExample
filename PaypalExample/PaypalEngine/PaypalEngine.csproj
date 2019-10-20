@@ -49,6 +49,7 @@
     <Compile Include="EngineData.cs" />
     <Compile Include="PaypalEngineCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RespuestaCreateOrder.cs" />
     <Compile Include="RespuestaPaypalToken.cs" />
   </ItemGroup>
   <ItemGroup>

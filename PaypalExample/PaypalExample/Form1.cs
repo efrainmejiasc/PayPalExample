@@ -38,8 +38,21 @@ namespace PaypalExample
                                                      "EKxAMafaLpeF04j9sioqIgzS-Y_nbjf3JCIq_6eL_12gCWnCKvEOpPsU5aChzgX386EQlFqmordebMze",
                                                      "client_credentials", "https://api.sandbox.paypal.com/v1/oauth2/token");
             Valor.RespuestaPaypalToken = resultado;
+            richText.Text = resultado.access_token;
         }
 
+        private void CreateOrder_Click(object sender, EventArgs e)
+        {
+            CreateOrderPaypal();
+        }
 
+        private async void CreateOrderPaypal()
+        {
+            PaypalEngineCode Funcion = new PaypalEngineCode();
+            RespuestaCreateOrder resultado = new RespuestaCreateOrder();
+            resultado = await Funcion.CreateOrder(Valor.RespuestaPaypalToken.access_token, "https://api.sandbox.paypal.com/v2/checkout/orders", "Curso-Sudoku", "Curso-Sudoku", "11.19");
+            Valor.RespuestaCreateOrder = resultado;
+            richText.Text = resultado.id;
+        }
     }
 }
