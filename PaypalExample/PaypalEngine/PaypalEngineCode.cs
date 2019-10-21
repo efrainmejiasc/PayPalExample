@@ -83,5 +83,81 @@ namespace PaypalEngine
             return resultado;
         }
 
+        //Aprobar el pago para poder pagar el pedido
+        public async Task<RespuestaApproveOrder> ApproveOrder(string accessToken, string EndPointApproveOrder)
+        {
+            string respuesta = string.Empty;
+            RespuestaApproveOrder resultado = new RespuestaApproveOrder();
+            using (HttpClient client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+                client.DefaultRequestHeaders.Add("accept-language", "en_ES");
+                HttpResponseMessage response = await client.GetAsync(EndPointApproveOrder);
+                if (response.IsSuccessStatusCode)
+                {
+                    respuesta = await response.Content.ReadAsStringAsync();
+                    respuesta = respuesta.Replace("$", "");
+                    respuesta = respuesta.Replace("-", "_");
+                    resultado = JsonConvert.DeserializeObject<RespuestaApproveOrder>(respuesta);
+                }
+            }
+
+            return resultado;
+        }
+
+        //Captura el pago para una orden
+        public async Task<string> CaptureOrder(string accessToken, string EndPointCaptureOrder)
+        {
+            string respuesta = string.Empty;
+            RespuestaApproveOrder resultado = new RespuestaApproveOrder();
+            using (HttpClient client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+                client.DefaultRequestHeaders.Add("accept-language", "en_ES");
+                HttpResponseMessage response = await client.GetAsync(EndPointCaptureOrder);
+                if (response.IsSuccessStatusCode)
+                {
+                    respuesta = await response.Content.ReadAsStringAsync();
+                    //resultado = JsonConvert.DeserializeObject<RespuestaApproveOrder>(respuesta);
+                }
+                else
+                {
+                    respuesta = response.IsSuccessStatusCode.ToString();
+                }
+            }
+
+            return respuesta;
+        }
+
+        //Captura el pago para una orden
+        public async Task<string> DetailsCaptureOrder(string accessToken, string EndPointDetailsCaptureOrder)
+        {
+            string respuesta = string.Empty;
+            RespuestaApproveOrder resultado = new RespuestaApproveOrder();
+            using (HttpClient client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+                client.DefaultRequestHeaders.Add("accept-language", "en_ES");
+                HttpResponseMessage response = await client.GetAsync(EndPointDetailsCaptureOrder);
+                if (response.IsSuccessStatusCode)
+                {
+                    respuesta = await response.Content.ReadAsStringAsync();
+                    //resultado = JsonConvert.DeserializeObject<RespuestaApproveOrder>(respuesta);
+                }
+                else
+                {
+                    respuesta = response.IsSuccessStatusCode.ToString();
+                }
+            }
+
+            return respuesta;
+        }
+
     }
 }

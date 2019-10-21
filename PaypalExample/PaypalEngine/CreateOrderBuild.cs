@@ -39,10 +39,7 @@ namespace PaypalEngine
             };
             lista.Add(item);
             return lista;
-        }
-
-
-      
+        }   
 
     }
 }

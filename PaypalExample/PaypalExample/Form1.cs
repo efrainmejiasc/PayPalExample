@@ -66,7 +66,49 @@ namespace PaypalExample
             RespuestaDetailsOrder resultado = new RespuestaDetailsOrder();
             resultado = await Funcion.DetailsOrder(Valor.RespuestaPaypalToken.access_token, "https://api.sandbox.paypal.com/v2/checkout/orders/" + Valor.RespuestaCreateOrder.id);
             Valor.RespuestaDetailsOrder = resultado;
-            richText.Text = resultado.status + " " + resultado.id + " " + resultado.intent;
+            richText.Text = resultado.status + " " + resultado.id + " " + resultado.intent + Environment.NewLine + Valor.RespuestaDetailsOrder.links[0].href + Environment.NewLine + Valor.RespuestaDetailsOrder.links[1].href + Environment.NewLine + Valor.RespuestaDetailsOrder.links[2].href + Environment.NewLine;
+        }
+
+        private void AppoveOorder_Click(object sender, EventArgs e)
+        {
+            ApproveOrder();
+        }
+
+        private async void ApproveOrder()
+        {
+            PaypalEngineCode Funcion = new PaypalEngineCode();
+            RespuestaApproveOrder resultado = new RespuestaApproveOrder();
+            resultado = await Funcion.ApproveOrder(Valor.RespuestaPaypalToken.access_token, Valor.RespuestaDetailsOrder.links[1].href);
+            richText.Text = resultado.correlationId + " " + resultado.profile;
+        }
+
+        //*******************************************************************************************************************************************************************************************
+
+        private void CaptureOrder_Click(object sender, EventArgs e)
+        {
+            CaptureOrderPaypal();
+        }
+
+
+        private async void CaptureOrderPaypal()
+        {
+            PaypalEngineCode Funcion = new PaypalEngineCode();
+            //RespuestaApproveOrder resultado = new RespuestaApproveOrder();
+            string resultado = await Funcion.CaptureOrder(Valor.RespuestaPaypalToken.access_token, "https://api.sandbox.paypal.com/v2/checkout/orders/" + Valor.RespuestaCreateOrder.id  + "/capture");
+            richText.Text = resultado;
+        }
+
+        private void DetalleCaptura_Click(object sender, EventArgs e)
+        {
+            DetailsCaptureOrder();
+        }
+
+        private async void DetailsCaptureOrder()
+        {
+            PaypalEngineCode Funcion = new PaypalEngineCode();
+            //RespuestaApproveOrder resultado = new RespuestaApproveOrder();
+            string resultado = await Funcion.CaptureOrder(Valor.RespuestaPaypalToken.access_token, "https://api.sandbox.paypal.com/v2/payments/captures/" + Valor.RespuestaCreateOrder.id);
+            richText.Text = resultado;
         }
     }
 }
