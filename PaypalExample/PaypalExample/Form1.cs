@@ -94,7 +94,7 @@ namespace PaypalExample
         {
             PaypalEngineCode Funcion = new PaypalEngineCode();
             //RespuestaApproveOrder resultado = new RespuestaApproveOrder();
-            string resultado = await Funcion.CaptureOrder(Valor.RespuestaPaypalToken.access_token, "https://api.sandbox.paypal.com/v2/checkout/orders/" + Valor.RespuestaCreateOrder.id  + "/capture");
+            string resultado = await Funcion.CaptureOrder(Valor.RespuestaPaypalToken.access_token, Valor.RespuestaDetailsOrder.links[2].href);
             richText.Text = resultado;
         }
 
