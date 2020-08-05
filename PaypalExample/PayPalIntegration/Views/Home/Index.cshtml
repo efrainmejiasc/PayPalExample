@@ -1,0 +1,42 @@
+﻿@using System.Web.Optimization
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
+@Scripts.Render("~/bundles/modernizr")
+@Scripts.Render("~/bundles/bootstrap")
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<h2>Index</h2>
+
+<style>
+    .mainForm__total2 {
+        width: auto;
+        background: #00BEFF;
+        border: 1px solid #00BEFF;
+        border-radius: 5px;
+        color: #fff;
+        margin: 30px auto;
+        padding: 10px 20px;
+        text-align: center;
+        font-size: 25px;
+        font-weight: 700;
+        transition: .3s;
+        display: inline;
+        width: auto
+    }
+
+        .mainForm__total2:hover {
+            background: #fff;
+            color: #00BEFF
+        }
+</style>
+
+<input type="button" id="testing" onclick="Testing('/Home/About');" value="Boton Inteligente" class="mainForm__total2" />
+<input type="button" id="testing" onclick="Testing('/Home/Contact');" value="Integracion Basica" class="mainForm__total2" />
+<input type="button" id="testing" onclick="Testing('/Home/Button');" value="Botones Totuga" class="mainForm__total2" />
+
+

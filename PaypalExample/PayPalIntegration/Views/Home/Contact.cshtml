@@ -1,0 +1,26 @@
+﻿@using System.Web.Optimization
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@{
+    ViewBag.Title = "Contact";
+    @Html.Partial("_SendiBlueScript")
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Garantiza una representación óptima en dispositivos móviles -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Compatibilidad óptima con Internet Explorer  -->
+}
+
+<h2>Test Paypal</h2>
+
+
+<body>
+    <script src="https://www.paypal.com/sdk/js?client-id=AXw6feF6vXkFM3chrCgVsIvjZyidI1DH3uymVqbjBoH1na7oMM90v9sjLadl8g0nLl2lXe1FoKSuoczh">
+        //Requiere remplazar ID_CLIENT por el identificador del cliente.
+    </script>
+    <div id="paypal-button-container"></div>
+
+    <script>
+        paypal.Buttons().render('#paypal-button-container');
+                                      //Esta funcion muestra el boton inteligente en la pagina.
+    </script>
+</body>

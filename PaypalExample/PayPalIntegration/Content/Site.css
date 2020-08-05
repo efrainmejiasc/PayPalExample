@@ -1,0 +1,71 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+.botonera-lista {
+    border: 0px solid;
+    display: flex;
+    justify-content: space-around;
+}
+
+@media screen and (max-width: 768px) and (min-width: 600px) {
+    .botonera-lista {
+        flex-wrap: wrap;
+    }
+
+    .botonera-lista--forma {
+        text-align: center;
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 599px) {
+    .botonera-lista {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .botonera-lista--forma {
+        margin: 0px 0px 0;
+    }
+}
+
+.mainForm__total2 {
+    width: auto;
+    background: #00BEFF;
+    border: 1px solid #00BEFF;
+    border-radius: 5px;
+    color: #fff;
+    margin: 30px auto;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 700;
+    transition: .3s;
+    display: inline;
+    text-align: center;
+    position: center;
+}
+
+    .mainForm__total2:hover {
+        background: #fff;
+        color: #00BEFF
+    }
+
+
+

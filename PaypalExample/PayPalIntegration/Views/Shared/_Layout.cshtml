@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test REQ-TOT-002</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Test REQ-TOT-002", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            console.log('INICIO');
+            window.sib = {
+                equeue: [],
+                client_key: "1lupklw190dqwlkhzvwy20tu"
+            };
+            /* OPTIONAL: email for identify request*/
+            window.sib.email_id = 'emcingenieriadesoftware@outlook.com';
+            window.sendinblue = {};
+            for (var j = ['track', 'identify', 'trackLink', 'page'], i = 0; i < j.length; i++) {
+                (function (k) {
+                    window.sendinblue[k] = function () {
+                        var arg = Array.prototype.slice.call(arguments);
+                        (window.sib[k] || function () {
+                            var t = {};
+                            t[k] = arg;
+                            window.sib.equeue.push(t);
+                        })(arg[0], arg[1], arg[2]);
+                    };
+                })(j[i]);
+            }
+            var n = document.createElement("script"),
+                i = document.getElementsByTagName("script")[0];
+            n.type = "text/javascript", n.id = "sendinblue-js", n.async = !0, n.src = "https://sibautomation.com/sa.js?key=" + window.sib.client_key, i.parentNode.insertBefore(n, i), window.sendinblue.page();
+            console.log('FINAL');
+        })();
+    </script>
+</body>
+</html>

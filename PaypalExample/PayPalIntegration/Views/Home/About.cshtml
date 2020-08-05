@@ -1,0 +1,22 @@
+﻿
+
+@using System.Web.Optimization
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@{
+    ViewBag.Title = "About";
+    @Html.Partial("_SendiBlueScript")
+
+}
+
+
+
+<h2>Test Paypal</h2>
+
+<div style="margin-left:35%;margin-top:5%;">
+    <script src="https://www.paypal.com/sdk/js?client-id=AXw6feF6vXkFM3chrCgVsIvjZyidI1DH3uymVqbjBoH1na7oMM90v9sjLadl8g0nLl2lXe1FoKSuoczh"></script>
+    <script>paypal.Buttons().render('body');</script>
+</div>
+
+
+
