@@ -1,6 +1,30 @@
-﻿@{ 
+﻿@using System.Web.Optimization
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
+@Scripts.Render("~/bundles/modernizr")
+@Scripts.Render("~/bundles/bootstrap")
+
+@{
     string t = ViewBag.Test;
 }
 
 <div style="margin-top:15%;">@t</div>
+
+<div>
+    <input type="button" value="Mostrar Spinner" onclick="MostrarSpinner()" />
+    <input type="button" value="Ocultar Spinner" onclick="OcultarSpinner()" />
+</div>
+
+
+<div class="loader" style="display:none;" id="loading">
+</div>
+    <div id="msg-process" style="display: none; font-size: 20px; text-align: center; padding: 15px; font-weight: bold;">
+        Procesando...
+        <div>Esto puede tardar un minuto</div>
+    </div>
+
+
+
+
+
 

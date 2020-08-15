@@ -96,3 +96,40 @@ function Redirecto() {
     });
     return false;
 }
+
+function initClassBlock(className) {
+    $('.' + className).block({
+        message: '<div class="loadercontainerlimit"><div class="loader">Loading...</div></div>',
+        css: {
+            border: '0 none',
+            backgroundColor: 'transparent',
+            cursor: 'wait'
+        },
+        overlayCSS: {
+            backgroundColor: '#000',
+            opacity: 0.2,
+            cursor: 'wait'
+        },
+        ignoreIfBlocked: false
+    });
+}
+
+function unblock(className) {
+    $('.' + className).unblock();
+}
+
+function MostrarSpinner() {
+
+    $('#msg-process').show();
+    $('#loading').show();
+    setTimeout(OcultarMsj, 3000);
+}
+
+function OcultarSpinner() {
+
+    $('#loading').hide();
+}
+function OcultarMsj() {
+
+    $('#msg-process').hide();
+}
