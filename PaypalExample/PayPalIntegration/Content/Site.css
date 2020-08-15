@@ -43,6 +43,9 @@ textarea {
     .botonera-lista--forma {
         margin: 0px 0px 0;
     }
+    .mainForm__total2 {
+        width: auto;
+    }
 }
 
 .mainForm__total2 {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PayPalIntegration.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -27,5 +28,21 @@ namespace PayPalIntegration.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public ActionResult Redirecto(string _ref)
+        {
+            if (!string.IsNullOrEmpty(_ref))
+            {
+                ViewBag.Test = "HOLA MUNDO";
+                Respuesta res = new Respuesta()
+                {
+                    Referencia = "Home/Redirecto?referencia=" + _ref
+                };
+                return Json(res, JsonRequestBehavior.AllowGet);
+            }
+            return View();
+        }
+
     }
 }
